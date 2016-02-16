@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Create Event</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.8.9/jquery.timepicker.min.css">
+
+
+
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body  onload="initDateTime();">
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-md-8">
+
+
+            <form id="eventForm"   action="eventlist.html" >
+
+                <div class="row">
+                    <div class="form-group col-sm-6" id="eventname">
+                        <label for="InputEventname">Event Title *</label>
+                        <input type="text" class="form-control" id="InputEventname" placeholder="Event Name" required autofocus>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-sm-6" id="eventtype">
+                        <label for="InputEventType">Event Type *</label>
+                        <input type="text" list="eventtypes" class="form-control" id="InputEventType" placeholder="Event Type" required>
+
+                        <datalist id="eventtypes">
+                            <option value="Birthday">
+                            <option value="Anniversary">
+                            <option value="House Warming">
+                            <option value="4th of July">
+                            <option value="Baby Shower">
+                            <option value="Family gathering">
+                            <option value="Graduation">
+                            <option value="Happy Hour">
+                            <option value="Dinner">
+                            <option value="Christmas">
+                            <option value="Thanksgiving">
+                            <option value="Mother's Day">
+                        </datalist>
+                    </div>
+                </div>
+
+
+                 <div class="row">
+                     <div class="form-group col-sm-6" id="Hostname">
+                        <label for="InputHostname">Host Name *</label>
+                        <input type="text" class="form-control" id="InputHostname"  autocomplete="off" placeholder="Enter host name"  required >
+                    </div>
+                 </div>
+
+                <div class="row">
+                    <div class="form-group col-sm-6" id="Address">
+                        <label for="InputEventaddress">Address *</label>
+                        <input type="text"   class="form-control" id="InputEventaddress"  autocomplete="off" placeholder="Enter your address" onFocus="geolocate()" onchange="geolocate()" required >
+                    </div>
+                </div>
+
+                <div class="row">
+                        <div class="form-group col-sm-12" id="citystatezip" >
+                        <label for="InputEventcity"> City *
+                            <input type="text" class="form-control" id="InputEventcity" autocomplete="off"  required >
+                        </label>
+
+                        <label for="InputEventstate">State *
+                            <input type="text" class="form-control" id="InputEventstate"  autocomplete="off" required >
+                        </label>
+
+                        <label for="InputEventzip">Zip *
+                            <input type="number" class="form-control" id="InputEventzip" autocomplete="off" required>
+                        </label>
+
+                    </div>
+               </div>
+
+                <div class="row">
+                <div class="form-group col-sm-6" id="capacity">
+                    <label for="InputEventCapacity">Capacity * </label>
+                    <input type="number" class="form-control "  min="0" maxlength="5"  step ="1" id="InputEventCapacity"  required >
+                </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-sm-12" id="starttimedate">
+                    <label for="InputEventstartdate">  Start Time *
+                        <input type="text" class="form-control" id="InputEventstartdate" placeholder="mm/dd/yyyy" required>
+                    </label>
+
+                        <label for="InputEventstarttime">at
+                         <input type="text" class="form-control" id="InputEventstarttime" placeholder="hh:mm" required >
+                        </label>
+                    </div>
+               </div>
+
+
+                <div class="row">
+                    <div class="form-group col-sm-12" id="endtimedate" >
+                        <label for="InputEventenddate"> End Time
+                            <input type="text" class="form-control" id="InputEventenddate" placeholder="mm/dd/yyyy">
+                        </label>
+
+                        <label for="InputEventendtime">at
+                            <input type="text" class="form-control" id="InputEventendtime" placeholder="hh:mm" >
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-sm-12" id="email">
+                        <label for="inputguestlist" >Guest list</label>
+                        <input type="email" id="inputguestlist" class="form-control" placeholder="Enter Email address separated by commas" required multiple>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="form-group col-sm-12" id="description">
+                        <label for="InputEventDescription">Description </label>
+                        <textarea class="form-control" name="textarea" rows="5" cols="50" id="InputEventDescription" placeholder="Description"></textarea>
+
+                    </div>
+                </div>
+
+
+                <button class="btn btn-lg btn-primary btn-block" type="submit"  id = "submitevent"  > Submit</a></button> <!--<a href="events.html">-->
+            </form>
+
+
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.3/jquery-ui.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.8.9/jquery.timepicker.min.js"></script>
+<script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+<script src="https://maps.googleapis.com/maps/api/js?libraries=places&callback=initAutocomplete"
+        async defer></script>
+<script src="js/app.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<!-- Latest compiled and minified JavaScript -->
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+</body>
+</html>
