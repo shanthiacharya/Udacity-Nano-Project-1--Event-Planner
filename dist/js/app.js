@@ -180,11 +180,7 @@ if (submitevent) {
 
       submitevent.onclick = function () {
 
-         console.log("Event submission here");
-        // if ( !eventForm.checkValidity() ) {
-        //   console.log("Form Not valid")
-        //     event.preventDefault();
-        // }
+        // After the form is validated collect data and push to firebase
         if ( eventForm.checkValidity() ) {
 
                    console.log("Checking Validity");
@@ -192,7 +188,7 @@ if (submitevent) {
                   var title = $("#eventname #InputEventname").val();
 
                    var hostname = $("#Hostname #InputHostname").val();
-                   
+
 
                    var address = $("#Address #InputEventaddress").val();
 
@@ -248,12 +244,14 @@ if (submitevent) {
 
 
 
+// Retreive data from firebase
+
 function getEventsList (){
   myFirebaseRef.once('value', function(snap) {
-  console.log("Child added fired");
+
   if (snap.val()) {
   var eventList = snap.val();
-  console.log(eventList);
+
          $.each( eventList, function( i, val ) {
               //  for( key in val ) {
                   //console.log(key);
