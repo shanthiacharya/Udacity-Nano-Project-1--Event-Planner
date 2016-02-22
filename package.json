@@ -1,0 +1,19 @@
+{
+  "name": "eventplanner",
+  "version": "1.0.0",
+  "description": "This is a meet up event planner application using HTML5 forms.  This has 2 forms",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shanthiacharya/Udacity-Nano-Project-1--Event-Planner.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shanthiacharya/Udacity-Nano-Project-1--Event-Planner/issues"
+  },
+  "homepage": "https://github.com/shanthiacharya/Udacity-Nano-Project-1--Event-Planner#readme"
+}

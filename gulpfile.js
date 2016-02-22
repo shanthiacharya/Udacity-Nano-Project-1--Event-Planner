@@ -6,7 +6,7 @@ var autoprefixer = require('gulp-autoprefixer');
 var browserSync = require('browser-sync').create();
 var concat = require('gulp-concat');
 
-gulp.task('default',['copy-html','scripts'],function(){
+gulp.task('default',['copy-html','scripts','copy-css'],function(){
 
     console.log('Gulp is running correctly')
     gulp.watch('*.html', ['copy-html']);
@@ -23,10 +23,18 @@ gulp.task('copy-html', function() {
     gulp.src('./*.html')
         .pipe(gulp.dest('./dist'));
 });
+gulp.task('copy-css', function() {
+
+    console.log('Gulp is copying css')
+    gulp.src('css/**/*.css')
+        .pipe(gulp.dest('./dist/css'));
+});
+
 
 gulp.task('dist', [
     'copy-html',
-    'scripts'
+    'scripts',
+    'copy-css'
 
 ]);
 
