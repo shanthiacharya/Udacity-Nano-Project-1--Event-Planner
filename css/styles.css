@@ -1,3 +1,7 @@
-.center {
-  float: none;
-  margin: 0 auto; }
+input.dirty:not(:focus):invalid {
+        background-color: #FFD9D9;
+      }
+
+input.dirty:not(:focus):valid {
+        background-color: #D9FFD9;
+}
