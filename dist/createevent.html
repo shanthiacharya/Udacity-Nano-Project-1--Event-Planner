@@ -14,7 +14,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.8.9/jquery.timepicker.min.css">
-
+    <link rel="stylesheet" href="css/styles.css">
 
 
 
@@ -26,7 +26,7 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-<body  onload="initDateTime();">
+<body  >
 <div class="container">
     <div class="row">
         <div class="col-xs-12 col-md-8">
@@ -37,14 +37,14 @@
                 <div class="row">
                     <div class="form-group col-sm-6" id="eventname">
                         <label for="InputEventname">Event Title *</label>
-                        <input type="text" class="form-control" id="InputEventname" placeholder="Event Name" required autofocus>
+                        <input type="text" class="form-control" id="InputEventname" placeholder="Event Name" autocomplete= "on" required autofocus>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="form-group col-sm-6" id="eventtype">
                         <label for="InputEventType">Event Type *</label>
-                        <input type="text" list="eventtypes" class="form-control" id="InputEventType" placeholder="Event Type" required>
+                        <input type="text" list="eventtypes" class="form-control" id="InputEventType" placeholder="Event Type" autocomplete= "on" required>
 
                         <datalist id="eventtypes">
                             <option value="Birthday">
@@ -67,18 +67,18 @@
                  <div class="row">
                      <div class="form-group col-sm-6" id="Hostname">
                         <label for="InputHostname">Host Name *</label>
-                        <input type="text" class="form-control" id="InputHostname"  autocomplete="off" placeholder="Enter host name"  required >
+                        <input type="text" class="form-control" id="InputHostname"   placeholder="Enter host name"  required autocomplete= "on">
                     </div>
                  </div>
 
                 <div class="row">
                     <div class="form-group col-sm-6" id="Address">
                         <label for="InputEventaddress">Address *</label>
-                        <input type="text"   class="form-control" id="InputEventaddress"  autocomplete="off" placeholder="Enter your address" onFocus="geolocate()" onchange="geolocate()" required >
+                        <input type="text"   class="form-control" id="InputEventaddress"  autocomplete="on" placeholder="Enter your address" onFocus="geolocate()" onchange="geolocate()" required >
                     </div>
                 </div>
 
-                <div class="row">
+                <!-- <div class="row">
                         <div class="form-group col-sm-12" id="citystatezip" >
                         <label for="InputEventcity"> City *
                             <input type="text" class="form-control" id="InputEventcity" autocomplete="off"  required >
@@ -93,44 +93,44 @@
                         </label>
 
                     </div>
-               </div>
+               </div> -->
 
                 <div class="row">
                 <div class="form-group col-sm-6" id="capacity">
                     <label for="InputEventCapacity">Capacity * </label>
-                    <input type="number" class="form-control "  min="0" maxlength="5"  step ="1" id="InputEventCapacity"  required >
+                    <input type="number" class="form-control "  min="0" maxlength="5"  step ="1" id="InputEventCapacity" autocomplete= "on" required >
                 </div>
                 </div>
 
                 <div class="row">
                     <div class="form-group col-sm-12" id="starttimedate">
                     <label for="InputEventstartdate">  Start Time *
-                        <input type="text" class="form-control" id="InputEventstartdate" placeholder="mm/dd/yyyy" required>
+                        <input type="datetime-local" class="form-control" id="InputEventstartdate" placeholder="mm/dd/yyyy" autocomplete= "on" required>
                     </label>
 
-                        <label for="InputEventstarttime">at
+                        <!-- <label for="InputEventstarttime">at
                          <input type="text" class="form-control" id="InputEventstarttime" placeholder="hh:mm" required >
-                        </label>
+                        </label> -->
                     </div>
                </div>
 
 
                 <div class="row">
                     <div class="form-group col-sm-12" id="endtimedate" >
-                        <label for="InputEventenddate"> End Time
-                            <input type="text" class="form-control" id="InputEventenddate" placeholder="mm/dd/yyyy">
+                        <label for="InputEventenddate"> End Time *
+                            <input type="datetime-local" class="form-control" id="InputEventenddate" placeholder="mm/dd/yyyy" autocomplete= "on" required>
                         </label>
 
-                        <label for="InputEventendtime">at
+                        <!-- <label for="InputEventendtime">at
                             <input type="text" class="form-control" id="InputEventendtime" placeholder="hh:mm" >
-                        </label>
+                        </label> -->
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="form-group col-sm-12" id="email">
                         <label for="inputguestlist" >Guest list</label>
-                        <input type="email" id="inputguestlist" class="form-control" placeholder="Enter Email address separated by commas" required multiple>
+                        <input type="email" id="inputguestlist" class="form-control" placeholder="Enter Email address separated by commas" required multiple autocomplete= "on">
                     </div>
                 </div>
 
@@ -138,7 +138,7 @@
                 <div class="row">
                     <div class="form-group col-sm-12" id="description">
                         <label for="InputEventDescription">Description </label>
-                        <textarea class="form-control" name="textarea" rows="5" cols="50" id="InputEventDescription" placeholder="Description"></textarea>
+                        <textarea class="form-control" name="textarea" rows="5" cols="50" id="InputEventDescription" placeholder="Description" autocomplete= "on"></textarea>
 
                     </div>
                 </div>
