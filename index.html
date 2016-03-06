@@ -6,6 +6,7 @@
   <title>Event Planner</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/boot_strength.css" type="text/css">
 
 
 </head>
@@ -29,9 +30,11 @@
                          </div>
 
 
-                         <div class="form-group" id="password">
+                         <div class="form-group boot_strength" id="password">
                             <label for="inputPassword" >Password *</label>
-                            <input type="password" id="inputPassword" class="form-control" maxlength="100" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{16,}"  title= "Must contain at least one number and one uppercase and lowercase letter, and at least 16 or more characters"   autocomplete= "on" placeholder="Password" required>
+                            <input type="password" id="inputPassword" class="form-control"  maxlength="100" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{16,}"  title= "Must contain at least one number and one uppercase and lowercase letter, and at least 16 or more characters"   autocomplete= "on" placeholder="Password" required>
+
+
                         </div>
 
                         <div class="form-group" id="employer">
@@ -54,7 +57,9 @@
     </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.3/jquery-ui.js"></script>
+  <script src="js/boot_strength.js" type="text/javascript"></script>
   <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
   <script src="js/app.js"></script>
+
 </body>
 </html>

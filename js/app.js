@@ -4,10 +4,19 @@ var submitevent = document.querySelector('#submitevent');
 var myFirebaseRef = new Firebase('https://eventplannerudacity.firebaseio.com/');
 
 
-
+//initPasswordStrengthMeter();
 initInputs();
 initSigninForm();
 initEventForm();
+
+
+if (submitsignin){
+$("#inputPassword").boot_strength({
+   strength_minlength: 16,
+  // strength_required_special:3
+});
+}
+
 
 function initInputs() {
 
@@ -23,6 +32,7 @@ function initInputs() {
           input.addEventListener("invalid", addDirtyClass);
           input.addEventListener("valid", addDirtyClass);
         }
+
 }
 
 
@@ -41,6 +51,24 @@ function initInputs() {
         }
       });
     }
+}
+
+
+function checkDates(event) {
+ console.log ("Changed End Date here")
+    var startDate = $("#starttimedate #InputEventstartdate").val();
+    var endDate =$("#endtimedate #InputEventenddate").val();
+    var elemEndDate = document.getElementById("InputEventenddate");
+
+    if ((Date.parse(startDate) >= Date.parse(endDate))) {
+      //  End date should be greater than Start date
+          elemEndDate.setCustomValidity("End Date must be after Start date");
+    }
+    else {
+        elemEndDate.setCustomValidity("");
+    }
+
+
 }
 
 function initEventForm() {
@@ -84,14 +112,51 @@ function initEventForm() {
       }
 }
 
-function displayPasswordRules(){
-
-
-}
 
 
 
-
+// function analyzePassword ()
+// {
+//   var strPassword= $("#inputPassword").val();
+// 	var charPassword = strPassword.split("");
+//   var minPasswordLength = 16;
+//   var passwdStrength = $("#passwdStrength")
+//
+//   if ($("#inputPassword").val()== "")
+// 	{
+// 		passwdStrength.html("");
+// 	}
+//   else if (charPassword.length < minPasswordLength)
+//    {
+//      passwdStrength.html("At least " + minPasswordLength+ " characters !");
+//    }
+//    else {
+//      for (i=0; i<charPassword.length;i++)
+//      {
+//          if (!charPassword[i].match(/[A-Z]/g))
+//          {
+//            passwdStrength.html("Missing Upper case");
+//          }
+//          else if (!charPassword[i].match(/[0-9]/g))
+//          {
+//             passwdStrength.html("Missing number");
+//          }
+//
+//          else if (!charPassword[i].match(/(.*[!,@,#,$,%,^,&,*,?,_,~])/))
+//          {
+//            passwdStrength.html("Missing symbol");
+//          }
+//     }
+//    }
+//
+//
+//
+//
+// }
+//
+//
+//
+//
 function initAutocomplete() {
     // Create the autocomplete object, restricting the search to geographical
     // location types.
@@ -174,155 +239,6 @@ IssueTracker.prototype = {
   }
 };
 
-/* If submit exists , then validate */
-
-//if (submitsignin) {
-
-
-  //      submitsignin.onclick = function () {
-          /*
-          Don't forget to grab the input's .value!
-           */
-        //  var firstPassword = firstPasswordInput.value;
-
-
-          /*
-          Make an issue tracker for each input because some validation messages should
-          end up on the first one, some on the second.
-           */
-        //  var firstInputIssuesTracker = new IssueTracker();
-
-
-          /*
-          This steps through all of the requirements and adds messages when a requirement fails.
-          Just checks the first password because the second should be the same when it runs.
-           */
-          // function checkRequirements() {
-          //   if (firstPassword.length < 16) {
-          //     firstInputIssuesTracker.add("fewer than 16 characters");
-          //   } else if (firstPassword.length > 100) {
-          //     firstInputIssuesTracker.add("greater than 100 characters");
-          //   }
-          //
-          //   if (!firstPassword.match(/[\!\@\#\$\%\^\&\*]/g)) {
-          //     firstInputIssuesTracker.add("missing a symbol (!, @, #, $, %, ^, &, *)");
-          //   }
-          //
-          //   if (!firstPassword.match(/\d/g)) {
-          //     firstInputIssuesTracker.add("missing a number");
-          //   }
-          //
-          //   if (!firstPassword.match(/[a-z]/g)) {
-          //     firstInputIssuesTracker.add("missing a lowercase letter");
-          //   }
-          //
-          //   if (!firstPassword.match(/[A-Z]/g)) {
-          //     firstInputIssuesTracker.add("missing an uppercase letter");
-          //   }
-          //
-          //   var illegalCharacterGroup = firstPassword.match(/[^A-z0-9\!\@\#\$\%\^\&\*]/g)
-          //   if (illegalCharacterGroup) {
-          //     illegalCharacterGroup.forEach(function (illegalChar) {
-          //       firstInputIssuesTracker.add("includes illegal character: " + illegalChar);
-          //     });
-          //   }
-          // };
-
-          /*
-          Here's the first validation check. Gotta make sure they match.
-           */
-           /*
-           They match, so make sure the rest of the requirements have been met.
-            */
-          // if ( firstPassword.length > 0) {
-          //
-          //   checkRequirements();
-          //   }
-
-
-          /*
-          Get the validation message strings after all the requirements have been checked.
-           */
-          // var firstInputIssues = firstInputIssuesTracker.retrieve()
-
-
-          /*
-          Let input.setCustomValidity() do its magic :)
-           */
-          // firstPasswordInput.setCustomValidity(firstInputIssues);
-
-
-      //  }
-
-//}
-
-
-
-// if (submitevent) {
-//
-//       submitevent.onclick = function () {
-//
-//         // After the form is validated collect data and push to firebase
-//         if ( eventForm.checkValidity() ) {
-//
-//                    console.log("Checking Validity");
-//
-//                   var title = $("#eventname #InputEventname").val();
-//
-//                    var hostname = $("#Hostname #InputHostname").val();
-//
-//
-//                    var address = $("#Address #InputEventaddress").val();
-//
-//                   // var city = $("#citystatezip #InputEventcity").val();
-//                    //var state = $("#citystatezip #InputEventstate").val();
-//                    //var zip = $("#citystatezip #InputEventzip").val();
-//
-//
-//                    var capacity = $("#capacity #InputEventCapacity").val();
-//
-//                    var startdate = $("#starttimedate #InputEventstartdate").toLocaleString();
-//
-//                   // var starttime = $("#starttimedate #InputEventstarttime").val();
-//
-//                    var enddate = $("#endtimedate #InputEventenddate").val();
-//
-//                    //var endtime = $("#endtimedate #InputEventendtime").val();
-//
-//                    var inputguestlist = $("#inputguestlist").val();
-//
-//                    var description = $("#description #InputEventDescription").val();
-//
-//                    //Add values to Firebase
-//                    myFirebaseRef.push({
-//                    title: title,
-//                    hostname:hostname,
-//
-//                    location: {
-//                    address:address
-//                   //  city: city,
-//                   //  state: state,
-//                   //  zip: zip
-//                    },
-//                    capacity: capacity,
-//                    startdate: startdate,
-//                   // starttime: starttime,
-//                    enddate: enddate,
-//                    //endtime: endtime,
-//
-//                    Description: description
-//                    });
-//
-//
-//
-//               }
-//
-//
-//
-//       } // END onclick
-//
-//
-// }// END submitevent
 
 
 
