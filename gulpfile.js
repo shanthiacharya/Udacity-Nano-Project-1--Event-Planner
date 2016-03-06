@@ -43,6 +43,6 @@ gulp.task('dist', [
 gulp.task('scripts', function() {
     console.log('Gulp is copying js')
     gulp.src('js/**/*.js')
-        .pipe(concat('app.js'))
+        // .pipe(concat('app.js'))
         .pipe(gulp.dest('dist/js'));
 });
