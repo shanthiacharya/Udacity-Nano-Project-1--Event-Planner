@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/shanthiacharya/Udacity-Nano-Project-1--Event-Planner/issues"
   },
-  "homepage": "https://github.com/shanthiacharya/Udacity-Nano-Project-1--Event-Planner#readme"
+  "homepage": "https://github.com/shanthiacharya/Udacity-Nano-Project-1--Event-Planner#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
 }

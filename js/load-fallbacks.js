@@ -1,0 +1,1 @@
+$('#InputEventType').relevantDropdown();

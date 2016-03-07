@@ -4,10 +4,11 @@ var submitevent = document.querySelector('#submitevent');
 var myFirebaseRef = new Firebase('https://eventplannerudacity.firebaseio.com/');
 
 
-//initPasswordStrengthMeter();
+
 initInputs();
 initSigninForm();
 initEventForm();
+
 
 
 if (submitsignin){
@@ -16,6 +17,7 @@ $("#inputPassword").boot_strength({
   // strength_required_special:3
 });
 }
+
 
 
 function initInputs() {
@@ -32,7 +34,10 @@ function initInputs() {
           input.addEventListener("invalid", addDirtyClass);
           input.addEventListener("valid", addDirtyClass);
         }
+<<<<<<< HEAD
+=======
 
+>>>>>>> master
 }
 
 
@@ -51,7 +56,50 @@ function initInputs() {
         }
       });
     }
+<<<<<<< HEAD
 }
+
+function initEventForm() {
+        var form = document.getElementById("eventForm")
+        if (form) {
+        form.addEventListener("submit", function(evt) {
+            if (form.checkValidity() === false) {
+              evt.preventDefault();
+              alert("Form is invalid - submission prevented!");
+              return false;
+            } else {
+
+                var title = $("#eventname #InputEventname").val();
+                var hostname = $("#Hostname #InputHostname").val();
+                var address = $("#Address #InputEventaddress").val();
+                var capacity = $("#capacity #InputEventCapacity").val();
+                var startdate = $("#starttimedate #InputEventstartdate").val();
+                var enddate = $("#endtimedate #InputEventenddate").val();
+                var inputguestlist = $("#inputguestlist").val();
+                var description = $("#description #InputEventDescription").val();
+
+                 //Add values to Firebase
+                 myFirebaseRef.push({
+                 title: title,
+                 hostname:hostname,
+
+                 location: {
+                 address:address
+
+                 },
+                 capacity: capacity,
+                 startdate: startdate,
+
+                 enddate: enddate,
+                 Description: description
+                 });
+                 return true;
+               }
+
+          });
+      }
+}
+
 
 
 function checkDates(event) {
@@ -115,48 +163,7 @@ function initEventForm() {
 
 
 
-// function analyzePassword ()
-// {
-//   var strPassword= $("#inputPassword").val();
-// 	var charPassword = strPassword.split("");
-//   var minPasswordLength = 16;
-//   var passwdStrength = $("#passwdStrength")
-//
-//   if ($("#inputPassword").val()== "")
-// 	{
-// 		passwdStrength.html("");
-// 	}
-//   else if (charPassword.length < minPasswordLength)
-//    {
-//      passwdStrength.html("At least " + minPasswordLength+ " characters !");
-//    }
-//    else {
-//      for (i=0; i<charPassword.length;i++)
-//      {
-//          if (!charPassword[i].match(/[A-Z]/g))
-//          {
-//            passwdStrength.html("Missing Upper case");
-//          }
-//          else if (!charPassword[i].match(/[0-9]/g))
-//          {
-//             passwdStrength.html("Missing number");
-//          }
-//
-//          else if (!charPassword[i].match(/(.*[!,@,#,$,%,^,&,*,?,_,~])/))
-//          {
-//            passwdStrength.html("Missing symbol");
-//          }
-//     }
-//    }
-//
-//
-//
-//
-// }
-//
-//
-//
-//
+
 function initAutocomplete() {
     // Create the autocomplete object, restricting the search to geographical
     // location types.
@@ -212,32 +219,7 @@ function fillInAddress() {
 
 
 
-/*
-I'm using this IssueTracker to help me format my validation messages.
- */
-function IssueTracker() {
-  this.issues = [];
-}
-IssueTracker.prototype = {
-  add: function (issue) {
-    this.issues.push(issue);
-  },
-  retrieve: function () {
-    var message = "";
-    switch (this.issues.length) {
-      case 0:
-        // do nothing because message is already ""
-        break;
-      case 1:
-        message = "Please correct the following issue:\n" + this.issues[0];
-        break;
-      default:
-        message = "Please correct the following issues:\n" + this.issues.join("\n");
-        break;
-    }
-    return message;
-  }
-};
+
 
 
 

@@ -78,22 +78,7 @@
                     </div>
                 </div>
 
-                <!-- <div class="row">
-                        <div class="form-group col-sm-12" id="citystatezip" >
-                        <label for="InputEventcity"> City *
-                            <input type="text" class="form-control" id="InputEventcity" autocomplete="off"  required >
-                        </label>
 
-                        <label for="InputEventstate">State *
-                            <input type="text" class="form-control" id="InputEventstate"  autocomplete="off" required >
-                        </label>
-
-                        <label for="InputEventzip">Zip *
-                            <input type="number" class="form-control" id="InputEventzip" autocomplete="off" required>
-                        </label>
-
-                    </div>
-               </div> -->
 
                 <div class="row">
                 <div class="form-group col-sm-6" id="capacity">
@@ -108,9 +93,7 @@
                         <input type="datetime-local" class="form-control" id="InputEventstartdate" placeholder="mm/dd/yyyy" autocomplete= "on" required>
                     </label>
 
-                        <!-- <label for="InputEventstarttime">at
-                         <input type="text" class="form-control" id="InputEventstarttime" placeholder="hh:mm" required >
-                        </label> -->
+
                     </div>
                </div>
 
@@ -121,9 +104,7 @@
                             <input type="datetime-local" class="form-control" id="InputEventenddate"  onchange="checkDates();"placeholder="mm/dd/yyyy" autocomplete= "on" required>
                         </label>
 
-                        <!-- <label for="InputEventendtime">at
-                            <input type="text" class="form-control" id="InputEventendtime" placeholder="hh:mm" >
-                        </label> -->
+
                     </div>
                 </div>
 
@@ -170,6 +151,17 @@
 <!-- Latest compiled and minified JavaScript -->
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-
+// HTML5 datalist polyfill that depends on jQuery and Modernizr.
+ <script src="js/modernizr.custom.95508.js"></script>
+ <script>
+   // Safari reports success of list attribute, so doing ghetto detection instead
+   yepnope({
+     test : (!Modernizr.input.list || (parseInt($.browser.version) > 400)),
+     yep : [
+         'js/jquery.relevant-dropdown.js',
+         'js/load-fallbacks.js'
+     ]
+   });
+ </script>
 </body>
 </html>
