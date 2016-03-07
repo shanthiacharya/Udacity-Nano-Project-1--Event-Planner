@@ -103,7 +103,7 @@
           }
           else if (rating <= 0.33) {
            thismeter.removeClass();
-           thismeter.addClass('veryweak').html('<p>Strength: very weak missing upper</p>');
+           thismeter.addClass('veryweak').html('<p>Strength: very weak </p>');
           }
           else if (rating <= 0.66){
            thismeter.removeClass();
