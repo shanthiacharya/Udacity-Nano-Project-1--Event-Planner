@@ -34,11 +34,8 @@ function initInputs() {
           input.addEventListener("invalid", addDirtyClass);
           input.addEventListener("valid", addDirtyClass);
         }
-<<<<<<< HEAD
-=======
+      }
 
->>>>>>> master
-}
 
 
 
@@ -56,7 +53,50 @@ function initInputs() {
         }
       });
     }
-<<<<<<< HEAD
+
+
+}
+
+function initEventForm() {
+        var form = document.getElementById("eventForm")
+        if (form) {
+        form.addEventListener("submit", function(evt) {
+            if (form.checkValidity() === false) {
+              evt.preventDefault();
+              alert("Form is invalid - submission prevented!");
+              return false;
+            } else {
+
+                var title = $("#eventname #InputEventname").val();
+                var hostname = $("#Hostname #InputHostname").val();
+                var address = $("#Address #InputEventaddress").val();
+                var capacity = $("#capacity #InputEventCapacity").val();
+                var startdate = $("#starttimedate #InputEventstartdate").val();
+                var enddate = $("#endtimedate #InputEventenddate").val();
+                var inputguestlist = $("#inputguestlist").val();
+                var description = $("#description #InputEventDescription").val();
+
+                 //Add values to Firebase
+                 myFirebaseRef.push({
+                 title: title,
+                 hostname:hostname,
+
+                 location: {
+                 address:address
+
+                 },
+                 capacity: capacity,
+                 startdate: startdate,
+
+                 enddate: enddate,
+                 Description: description
+                 });
+                 return true;
+               }
+
+          });
+      }
+
 }
 
 function initEventForm() {
@@ -99,6 +139,7 @@ function initEventForm() {
           });
       }
 }
+
 
 
 

@@ -34,6 +34,7 @@ function initInputs() {
           input.addEventListener("invalid", addDirtyClass);
           input.addEventListener("valid", addDirtyClass);
         }
+      }
 
 
 
