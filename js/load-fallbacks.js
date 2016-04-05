@@ -1,1 +1,1 @@
-$('#InputEventType').relevantDropdown();
+$("#InputEventType").relevantDropdown();
