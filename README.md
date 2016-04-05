@@ -29,5 +29,5 @@ Installation
  ---
 ```
    gulp
-   Browser opens at [http://localhost:3000] 
+   Browser opens at [http://localhost:3000](http://localhost:3000) 
 ``` 
