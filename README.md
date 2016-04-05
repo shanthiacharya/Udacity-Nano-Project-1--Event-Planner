@@ -15,18 +15,17 @@ Installation
 1. Download and Unzip this repository
 2. Install Dependencies
 
-,,,,
+,,,
     npm install 
     npm install gulp
     npm install gulp-autoprefixer
     npm install browser-sync
     npm install gulp-concat
     npm install gulp-uglify
-
+,,,
  Running
  ---
-
+,,,
    gulp
-   
-   
    Browser opens at [http://localhost:3000] (http://localhost:3000)
+,,,   
