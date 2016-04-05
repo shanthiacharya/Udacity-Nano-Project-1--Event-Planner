@@ -7,14 +7,15 @@ This is a responsive web application to create a meet-up event based on [Bootstr
 
 1. Works for both desktop and mobile.
 2. Instant validation on forms and password strength meter
-3. App uses firebase as backend to store event information.
-4. Grunt file to automate the front end workflow
+3. Google location Api to autosuggest address
+4. App uses firebase as backend to store event information.
+5. Grunt file to automate the front end workflow
 
 Installation
 ---
 1. Download and Unzip this repository
 2. Install Dependencies
-3. 
+
 
 ```
     npm install 
