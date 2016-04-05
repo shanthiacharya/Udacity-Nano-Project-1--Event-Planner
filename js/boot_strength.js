@@ -39,10 +39,29 @@
           // When a key is pressed in the password field, re-check the strength
           //self.$elem.bind('keyup keydown', function(event) {
           self.$elem.bind('keyup', function(event) {
+           console.log ("Keyup Event");
            thisval = $('#'+this_elem_id).val();
-//console.log("I have val:" +thisval+" for elem: '"+this_elem_id+"'");
            self.check_strength(thisval,this_elem_id);
           }); // end bind
+
+            self.$elem.bind('blur', function(event) {
+               //hide popover when password field is blurred
+               console.log ("Blur Event");
+              $('#inputPassword').attr('data-content', '');
+              $('#inputPassword').popover('hide');
+            });
+
+            self.$elem.bind('focus', function(event) {
+               //hide popover when password field is in focus until user starts typing
+                 $('#inputPassword').attr('data-content', '');
+               $('#inputPassword').popover('hide');
+            });
+            self.$elem.bind('click', function(event) {
+
+            $('#inputPassword').attr('data-content', '');
+            $('#inputPassword').popover('hide');
+            });
+
 
           //$("i.fa[data-meter-fa='"+this_elem_id+"']").on('click',function(){
           $("div.idiv[data-meter-fa='"+this_elem_id+"']").on('click',function(){
@@ -63,6 +82,7 @@
           var num_digits = 0;
           var num_special = 0;
           var sufficient_length = 0;
+          var usrmessage ="";
 
           var upper_score = 0;
           var lower_score = 0;
@@ -92,33 +112,64 @@
           var score = upper_score+lower_score+digit_score+special_score+sufficient_length;
           var rating = score/this.required_score;
           rating = rating.toFixed(2);
+
+          if (upper_score !=1) usrmessage += "Missing upper case character" + "<br>" ;
+          if (special_score !=1) usrmessage +=  "Missing special character" + "<br>";
+          if (lower_score !=1) usrmessage += "Missing lower case character"+ "<br>";
+          if (digit_score !=1) usrmessage +=  "Missing digits"+ "<br>" ;
+          if (sufficient_length !=1) usrmessage += "Password needs to be 16 characters long" + "<br>";
+
+          console.log(usrmessage);
 //console.log("Required: "+this.required_score+" Score: "+score+" Rating: "+rating);
-          this.redraw_strength_meter(rating,thisid);
+          this.redraw_strength_meter(rating,thisid,usrmessage);
          }, // end function check_strength
-         redraw_strength_meter: function (rating,thisid){
+         redraw_strength_meter: function (rating,thisid,usrmessage){
 //console.log("Redrawing for "+thisid);
           var thismeter = $('div[data-meter="'+thisid+'"]');
+          console.log(rating);
           if (rating == 0){
            thismeter.removeClass().html('');
+          this.hide_passwordrules_popover();
+
           }
           else if (rating <= 0.33) {
            thismeter.removeClass();
-           thismeter.addClass('veryweak').html('<p>Strength: very weak </p>');
+           thismeter.addClass('veryweak').html('<p>Strength: very weak </p>' );
+           this.show_passwordrules_popover(usrmessage);
           }
           else if (rating <= 0.66){
            thismeter.removeClass();
            thismeter.addClass('weak').html('<p>Strength: weak</p>');
+           this.show_passwordrules_popover(usrmessage);
           }
           else if(rating < 1){
            thismeter.removeClass();
            thismeter.addClass('medium').html('<p>Strength: medium</p>');
+           this.show_passwordrules_popover(usrmessage);
+
           }
           else {
            thismeter.removeClass();
-           thismeter.addClass('strong').html('<p>Strength: strong</p>');
+           this.hide_passwordrules_popover();
+           thismeter.addClass('strong').html('<p>Strength: strong</p>')
           }
-         } // end function redraw_strength_meter
 
+
+        }, // end function redraw_strength_meter
+
+         show_passwordrules_popover : function (usrmessage) {
+          $('#inputPassword').attr('data-placement', 'top');
+          $('#inputPassword').attr('data-html', 'true');
+          $('#inputPassword').attr('data-content', usrmessage);
+          $('#inputPassword').popover('show');
+
+        },
+
+        hide_passwordrules_popover : function () {
+          $('#inputPassword').attr('data-content', '');
+          $('#inputPassword').popover('hide');
+
+        }
 
   }; // end Plugin.prototype
 

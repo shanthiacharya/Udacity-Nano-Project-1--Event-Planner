@@ -64,14 +64,14 @@
                 <div class="row">
                     <div class="form-group col-sm-6" id="eventname">
                         <label for="InputEventname">Event Title *</label>
-                        <input type="text" class="form-control" id="InputEventname" placeholder="Event Name" autocomplete= "on" required autofocus>
+                        <input type="text" class="form-control" name="InputEventname" id="InputEventname" placeholder="Event Name" autocomplete= "on" required autofocus>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="form-group col-sm-6" id="eventtype">
                         <label for="InputEventType">Event Type *</label>
-                        <input type="text" list="eventtypes" class="form-control" id="InputEventType" placeholder="Event Type" autocomplete= "on" required>
+                        <input type="text" list="eventtypes" class="form-control" name="InputEventType" id="InputEventType" placeholder="Event Type" autocomplete= "on" required>
 
                         <datalist id="eventtypes">
                             <option value="Birthday">
@@ -94,30 +94,29 @@
                  <div class="row">
                      <div class="form-group col-sm-6" id="Hostname">
                         <label for="InputHostname">Host Name *</label>
-                        <input type="text" class="form-control" id="InputHostname"   placeholder="Enter host name"  required autocomplete= "on">
+                        <input type="text" class="form-control" name="InputHostname" id="InputHostname"   placeholder="Enter host name"  required autocomplete= "on">
                     </div>
                  </div>
 
                 <div class="row">
                     <div class="form-group col-sm-6" id="Address">
                         <label for="InputEventaddress">Address *</label>
-                        <input type="text"   class="form-control" id="InputEventaddress"  autocomplete="on" placeholder="Enter your address" onFocus="geolocate()" onchange="geolocate()" required >
+                        <input type="text"   class="form-control" name="InputEventaddress" id="InputEventaddress"  autocomplete="on" placeholder="Enter your address" onFocus="geolocate()" onchange="geolocate()" required >
                     </div>
                 </div>
 
 
-
-                <div class="row">
+                <!-- <div class="row">
                 <div class="form-group col-sm-6" id="capacity">
                     <label for="InputEventCapacity">Capacity * </label>
                     <input type="number" class="form-control "  min="0" maxlength="5"  step ="1" id="InputEventCapacity" autocomplete= "on" required >
                 </div>
-                </div>
+                </div> -->
 
                 <div class="row">
                     <div class="form-group col-sm-12" id="starttimedate">
                     <label for="InputEventstartdate">  Start Time *
-                        <input type="datetime-local" class="form-control" id="InputEventstartdate" placeholder="mm/dd/yyyy" autocomplete= "on" required>
+                        <input type="datetime-local" class="form-control" name="InputEventstartdate" id="InputEventstartdate" placeholder="mm/dd/yyyy" autocomplete= "on" required>
                     </label>
 
 
@@ -128,7 +127,7 @@
                 <div class="row">
                     <div class="form-group col-sm-12" id="endtimedate" >
                         <label for="InputEventenddate"> End Time *
-                            <input type="datetime-local" class="form-control" id="InputEventenddate"  onchange="checkDates();"placeholder="mm/dd/yyyy" autocomplete= "on" required>
+                            <input type="datetime-local" class="form-control" name="InputEventenddate" id="InputEventenddate"  onchange="checkDates();"placeholder="mm/dd/yyyy" autocomplete= "on" required>
                         </label>
 
 
@@ -138,7 +137,7 @@
                 <div class="row">
                     <div class="form-group col-sm-12" id="email">
                         <label for="inputguestlist" >Guest list</label>
-                        <input type="email" id="inputguestlist" class="form-control" placeholder="Enter Email address separated by commas" required multiple autocomplete= "on">
+                        <input type="email" name="inputguestlist" id="inputguestlist" class="form-control" placeholder="Enter Email address separated by commas" required multiple autocomplete= "on">
                     </div>
                 </div>
 
@@ -146,7 +145,7 @@
                 <div class="row">
                     <div class="form-group col-sm-12" id="description">
                         <label for="InputEventDescription">Description </label>
-                        <textarea class="form-control" name="textarea" rows="5" cols="50" id="InputEventDescription" placeholder="Description" autocomplete= "on"></textarea>
+                        <textarea class="form-control" name="InputEventDescription" rows="5" cols="50" id="InputEventDescription" placeholder="Description" autocomplete= "on"></textarea>
 
                     </div>
                 </div>
@@ -171,13 +170,13 @@
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.8.9/jquery.timepicker.min.js"></script> -->
 <script src="https://maps.googleapis.com/maps/api/js?libraries=places&callback=initAutocomplete" async defer></script>
 <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
 <script src="js/app.js"></script>
 
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <!-- Latest compiled and minified JavaScript -->
 
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 <!--  HTML5 datalist polyfill that depends on jQuery and Modernizr.-->
  <script src="js/modernizr.custom.95508.js"></script>
  <script>
