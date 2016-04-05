@@ -22,7 +22,7 @@ Installation
     npm install browser-sync
     npm install gulp-concat
     npm install gulp-uglify
-,,,,,
+
     
 3. Running
 
