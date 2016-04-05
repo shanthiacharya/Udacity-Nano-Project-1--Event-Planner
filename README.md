@@ -11,7 +11,7 @@ This is a responsive web application to create a meet-up event based on [Bootstr
 4. Grunt file to automate the front end workflow
 
 Installation
-
+---
 1. Download and Unzip this repository
 2. Install Dependencies
 
@@ -23,7 +23,10 @@ Installation
     npm install gulp-concat
     npm install gulp-uglify
 
-    
-3. Running
+ Running
+ ---
 
    gulp
+   
+   
+   Browser opens at [http://localhost:3000] (http://localhost:3000)
