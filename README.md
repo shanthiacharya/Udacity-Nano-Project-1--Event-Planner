@@ -15,13 +15,14 @@ Installation
 1. Download and Unzip this repository
 2. Install Dependencies
 
-
-    npm install
+,,,,
+    npm install 
     npm install gulp
     npm install gulp-autoprefixer
     npm install browser-sync
     npm install gulp-concat
     npm install gulp-uglify
+,,,,,
     
 3. Running
 
