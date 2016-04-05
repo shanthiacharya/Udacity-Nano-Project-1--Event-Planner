@@ -40,12 +40,27 @@
  color: #000;
  font-size:13px;
 }
+.strength_meter div li{
+ position: absolute;
+ top: 50px;
+ height: 32px;
+ /*right: 0px;*/
+ color: #FF0000;
+ font-size:13px;
+}
+
 
 div.idiv {
  position: absolute;
  top: 33px;
  right: -25px;
 cursor:pointer;
+}
+
+.usrerrormsg {
+
+color: #FF0000;
+
 }
 
 .veryweak{
