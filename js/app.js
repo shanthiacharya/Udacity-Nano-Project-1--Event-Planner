@@ -173,7 +173,7 @@ function initEventForm() {
                 var title = $("#eventname #InputEventname").val();
                 var hostname = $("#Hostname #InputHostname").val();
                 var address = $("#Address #InputEventaddress").val();
-                var capacity = $("#capacity #InputEventCapacity").val();
+                // var capacity = $("#capacity #InputEventCapacity").val();
                 var startdate = $("#starttimedate #InputEventstartdate").val();
                 var enddate = $("#endtimedate #InputEventenddate").val();
                 var inputguestlist = $("#inputguestlist").val();
@@ -188,7 +188,7 @@ function initEventForm() {
                  address:address
 
                  },
-                 capacity: capacity,
+                //  capacity: capacity,
                  startdate: startdate,
 
                  enddate: enddate,
