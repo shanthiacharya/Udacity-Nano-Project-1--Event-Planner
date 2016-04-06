@@ -6,7 +6,7 @@ Meet-Up Event Planner
 This is a responsive web application to create a meet-up event based on [Bootstrap](http://getbootstrap.com/).
 
 1. Works for both desktop and mobile.
-<img src="validation.gif" alt="Screen Demo" width="350" />
+
 2. Instant validation on forms and password strength meter
 
 3. Google location Api to autosuggest address
@@ -34,4 +34,4 @@ Installation
    gulp
  ``` 
    Browser opens at [http://localhost:3000](http://localhost:3000) 
-
+<img src="validation.gif" alt="Screen Demo" width="350" />
