@@ -6,9 +6,8 @@ Meet-Up Event Planner
 This is a responsive web application to create a meet-up event based on [Bootstrap](http://getbootstrap.com/).
 
 1. Works for both desktop and mobile.
-2. Instant validation on forms and password strength meter
 <img src="validation.gif" alt="Screen Demo" width="350" />
-
+2. Instant validation on forms and password strength meter
 
 3. Google location Api to autosuggest address
 4. App uses firebase as backend to store event information.
